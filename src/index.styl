@@ -1,0 +1,56 @@
+body
+  height: 100vh
+  margin: 0
+
+header
+  text-align: center
+
+main
+  display: flex
+  flex-direction: column
+  align-items: center
+  gap: 50px
+  height: 100%
+  width: 100%
+
+.concept-area
+  display: grid
+  grid-template-columns: repeat(2, 1fr)
+  gap: 10px
+  overflow: hidden
+  box-sizing: border-box
+  background-color: white
+  border: 2px solid lightgray
+  border-radius: 6px
+  padding: 40px
+  min-width: 400px
+  width: 100%
+
+#windows div
+  display: block
+  overflow: hidden
+  border: 2px solid lightgray
+  border-radius: 3px
+  padding: 6px
+  aspect-ratio: 4 / 3
+  width: 1fr
+  cursor: pointer
+  transition-property: transform, top, left
+  transition-duration: 200ms
+  transition-timing-function: ease
+
+#windows div:hover
+  transform: scale(1.25)
+
+#windows div[data-magnified="true"]
+  z-index: 2
+  position: fixed
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%) scale(2.5)
+  width: 250px
+
+@media only screen and (min-width: 700px), (orientation: landscape)
+  .concept-area
+    grid-template-columns: repeat(3, 1fr)
+    max-width: 700px
